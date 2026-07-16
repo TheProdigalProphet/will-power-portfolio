@@ -1,0 +1,22 @@
+# Dependencies & build tooling (not needed for the live site)
+node_modules/
+package-lock.json
+package.json
+build-deck.mjs
+
+# Large local-only masters (not served on Pages)
+media/st-githas-hello-sa-uhd.mp4
+media/st-githas-hello-sa-hq.mp4
+media/st-githas-hello-sa-deploy.mp4
+Will-Power-Landscape-Portfolio.pptx
+contact-sheet.jpg
+thumbs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vercel
+.idea/
+.vscode/

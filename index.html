@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Will Power — Landscape &amp; Civil Plant Portfolio</title>
+  <meta name="description" content="Professional portfolio — award-winning landscape construction plus mining, quarrying and crushing plant operation across Australia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/hero-cover.webp" type="image/webp" />
+  <link rel="preload" as="image" href="assets/hero-cover.jpg" type="image/jpeg" />
+  <script>
+    /* Apply theme before paint to avoid flash — default dark when unset */
+    (function () {
+      try {
+        var k = "wp-portfolio-theme";
+        var stored = localStorage.getItem(k);
+        var theme = stored === "light" || stored === "dark" ? stored : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      /* Brand (stable — used by always-dark sections) */
+      --forest: #1a2e1a;
+      --deep: #0f1a10;
+      --moss: #3d5c3a;
+      --sage: #8fad7a;
+      --sand: #e8e0d0;
+      --cream: #f7f3ea;
+      --stone: #a89b88;
+      --gold: #c4a35a;
+      --ink: #1c1c18;
+      --muted: #5c6658;
+      --white: #ffffff;
+      --radius: 4px;
+      --shadow: 0 24px 60px rgba(15, 26, 16, 0.28);
+      --max: 1280px;
+
+      /* Semantic surfaces / text (swap in dark mode) */
+      --bg: #f7f3ea;
+      --bg-raised: #ffffff;
+      --text: #1c1c18;
+      --text-muted: #5c6658;
+      --heading: #1a2e1a;
+      --label: #3d5c3a;
+      --border: rgba(26, 46, 26, 0.08);
+      --card-shadow: 0 10px 30px rgba(26, 46, 26, 0.06);
+      --pill-bg: rgba(143, 173, 122, 0.12);
+      --pill-border: rgba(61, 92, 58, 0.25);
+      --gallery-ph: #ddd;
+      --theme-toggle-bg: rgba(247, 243, 234, 0.12);
+      --theme-toggle-border: rgba(247, 243, 234, 0.28);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0a0e0b;
+      --bg-raised: #131a14;
+      --text: #e9e5d9;
+      --text-muted: #9aa894;
+      --heading: #d8e4d0;
+      --label: #a3bf94;
+      --border: rgba(143, 173, 122, 0.14);
+      --card-shadow: 0 14px 40px rgba(0, 0, 0, 0.42);
+      --pill-bg: rgba(143, 173, 122, 0.12);
+      --pill-border: rgba(143, 173, 122, 0.32);
+      --gallery-ph: #1a211c;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      --theme-toggle-bg: rgba(247, 243, 234, 0.08);
+      --theme-toggle-border: rgba(247, 243, 234, 0.22);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.35s ease, color 0.25s ease;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+
+    /* NAV */
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: linear-gradient(180deg, rgba(15,26,16,0.92), rgba(15,26,16,0.55) 70%, transparent);
+      color: var(--cream);
+      transition: background .3s;
+    }
+    .nav.scrolled {
+      background: rgba(15, 26, 16, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    }
+    .nav-brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .nav-brand span { color: var(--sage); font-weight: 400; font-style: italic; font-size: 0.95rem; margin-left: 0.5rem; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links a { opacity: 0.85; transition: opacity .2s, color .2s; }
+    .nav-links a:hover { opacity: 1; color: var(--sage); }
+    .nav-cta {
+      background: var(--gold); color: var(--deep); padding: 0.55rem 1.1rem;
+      border-radius: 999px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .nav-cta:hover { filter: brightness(1.08); }
+    .nav-toggle { display: none; color: var(--cream); font-size: 1.4rem; }
+    .nav-actions {
+      display: flex; align-items: center; gap: 0.65rem;
+    }
+    .theme-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 2.35rem; height: 2.35rem; border-radius: 999px;
+      color: var(--cream);
+      background: var(--theme-toggle-bg);
+      border: 1px solid var(--theme-toggle-border);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover {
+      background: rgba(196, 163, 90, 0.22);
+      border-color: rgba(196, 163, 90, 0.55);
+      transform: translateY(-1px);
+    }
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+    .theme-toggle svg { width: 1.1rem; height: 1.1rem; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+    /* HERO */
+    .hero {
+      position: relative; min-height: 100vh; min-height: 100dvh;
+      display: grid; place-items: end start;
+      color: var(--cream); overflow: hidden;
+    }
+    .hero-photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+      z-index: 0;
+      transform: scale(1.02);
+      filter: contrast(1.05) saturate(1.06) brightness(1.02);
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        105deg,
+        rgba(15, 26, 16, 0.72) 0%,
+        rgba(15, 26, 16, 0.32) 45%,
+        rgba(15, 26, 16, 0.12) 100%
+      );
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 2rem 5.5rem;
+      max-width: 820px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sage); font-weight: 500; margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before {
+      content: ""; width: 2.5rem; height: 1px; background: var(--sage);
+    }
+    .hero h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.2rem, 8vw, 5.6rem);
+      line-height: 0.95; font-weight: 700; margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: italic; font-weight: 400; color: var(--sand); }
+    .hero-lead {
+      font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 300;
+      max-width: 34rem; color: rgba(247,243,234,0.9); margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 1rem 2rem;
+      font-size: 0.85rem; letter-spacing: 0.04em; color: var(--sand);
+    }
+    .hero-meta strong { display: block; color: var(--white); font-size: 1.35rem; font-family: "Cormorant Garamond", serif; font-weight: 700; }
+    .hero-scroll {
+      position: absolute; right: 2rem; bottom: 2rem; z-index: 2;
+      writing-mode: vertical-rl; font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; opacity: 0.7;
+    }
+
+    /* SECTIONS */
+    section { padding: 5.5rem 2rem; }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--label); font-weight: 600; margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.1;
+      font-weight: 700; margin-bottom: 1.25rem; color: var(--heading);
+    }
+    .section-title em { font-style: italic; font-weight: 400; color: var(--label); }
+    .section-intro {
+      max-width: 42rem; color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2.5rem;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--bg-raised);
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; align-items: center;
+    }
+    .about-photo {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); aspect-ratio: 4/5;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about-badge {
+      position: absolute; left: 1.25rem; bottom: 1.25rem;
+      background: rgba(15,26,16,0.9); color: var(--cream);
+      padding: 1rem 1.25rem; border-radius: var(--radius); max-width: 16rem;
+    }
+    .about-badge strong {
+      display: block; font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem; line-height: 1.1; margin-bottom: 0.25rem;
+    }
+    .about-badge span { font-size: 0.8rem; opacity: 0.85; }
+    .about-copy p { margin-bottom: 1rem; color: var(--text-muted); }
+    .about-copy p strong { color: var(--heading); font-weight: 600; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .pill {
+      border: 1px solid var(--pill-border); color: var(--heading);
+      padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.78rem; font-weight: 500;
+      background: var(--pill-bg);
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--forest); color: var(--cream); padding: 3.5rem 2rem;
+    }
+    .stats-grid {
+      max-width: var(--max); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    }
+    .stat { text-align: center; padding: 0.5rem; }
+    .stat-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 700; color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      margin-top: 0.5rem; font-size: 0.82rem; letter-spacing: 0.08em;
+      text-transform: uppercase; opacity: 0.85;
+    }
+
+    /* AWARDS */
+    .awards { background: var(--bg); }
+
+    /* COMPANY LOGOS */
+    .company-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 0 0 2.5rem;
+    }
+    .company-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: var(--bg-raised);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.35rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+    }
+    .company-card img {
+      max-height: 72px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .company-card.dark {
+      background: #1a1a1a;
+      border-color: #333;
+    }
+    .company-card.dark .company-meta strong { color: #fff; }
+    .company-card.dark .company-meta span { color: rgba(255,255,255,0.7); }
+    .company-meta strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--heading);
+      line-height: 1.15;
+    }
+    .company-meta span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .company-meta .pill-mini {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--deep);
+      background: rgba(196,163,90,0.25);
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+    }
+    .award-company {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 0.85rem 1.1rem;
+      background: var(--bg-raised);
+      border-radius: var(--radius);
+      max-width: 28rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+    }
+    .award-company img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+    }
+    .award-company p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .award-company strong {
+      color: var(--heading);
+      display: block;
+      font-size: 1rem;
+    }
+    .tl-logo {
+      height: 36px;
+      width: auto;
+      max-width: 120px;
+      object-fit: contain;
+      margin: 0.35rem 0 0.5rem;
+      display: block;
+    }
+    .tl-logo.dark-bg {
+      background: #1a1a1a;
+      padding: 0.4rem 0.55rem;
+      border-radius: 4px;
+      height: 42px;
+    }
+
+    /* COMPANIES REPRESENTED BANNER — full-bleed single row */
+    .companies-banner {
+      background: linear-gradient(180deg, #0f1a10 0%, #1a2e1a 55%, #152418 100%);
+      color: var(--cream);
+      padding: 2.75rem 0 3rem;
+      border-top: 1px solid rgba(196,163,90,0.25);
+      border-bottom: 1px solid rgba(196,163,90,0.25);
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+      overflow-x: auto;
+    }
+    .companies-banner .wrap {
+      max-width: none;
+      width: 100%;
+      margin: 0;
+      padding: 0 0.65rem;
+      box-sizing: border-box;
+    }
+    .companies-banner .section-label { color: var(--gold); text-align: center; }
+    .companies-banner .section-title {
+      color: var(--cream);
+      text-align: center;
+      margin-bottom: 0.45rem;
+    }
+    .companies-banner .section-title em { color: var(--gold); }
+    .companies-banner .section-intro {
+      text-align: center;
+      color: rgba(247,243,234,0.72);
+      margin: 0 auto 1.5rem;
+      max-width: 40rem;
+      padding: 0 1rem;
+    }
+    .logo-row {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 0.45rem;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .logo-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 6px;
+      padding: 0.55rem 0.4rem;
+      min-width: 0;
+      min-height: 70px;
+      flex: 1 1 0;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .logo-cell:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+    }
+    .logo-cell img {
+      max-width: 100%;
+      max-height: 48px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .logo-cell.dark {
+      background: #141414;
+      border: 1px solid rgba(255,140,0,0.35);
+    }
+    .logo-cell.dark img {
+      max-height: 44px;
+    }
+    .award-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    .award-card {
+      background: var(--bg-raised); border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+    }
+    .award-year {
+      font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 0.6rem;
+    }
+    .award-card h3 {
+      font-family: "Cormorant Garamond", serif; font-size: 1.45rem;
+      line-height: 1.2; color: var(--heading); margin-bottom: 0.5rem;
+    }
+    .award-card p { font-size: 0.92rem; color: var(--text-muted); }
+
+    /* PROJECTS */
+    .projects { background: var(--bg-raised); }
+    .project-block { margin-bottom: 5rem; }
+    .project-block:last-child { margin-bottom: 0; }
+    .project-head {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem;
+      align-items: end; margin-bottom: 1.5rem;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.75rem; }
+    .tag {
+      font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+      background: var(--forest); color: var(--cream); padding: 0.35rem 0.7rem; border-radius: 999px;
+    }
+    .project-desc { color: var(--text-muted); font-size: 1rem; }
+    .project-desc strong { color: var(--heading); }
+    .project-highlight-card {
+      flex: 1;
+      min-width: 12rem;
+      background: var(--bg);
+      border-left: 3px solid var(--gold);
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .project-highlight-card .ph-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .project-highlight-card .ph-label.moss { color: var(--label); }
+    .project-highlight-card .ph-label.muted { color: var(--text-muted); }
+    .project-highlight-card .ph-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--heading);
+      font-weight: 700;
+    }
+    .media-feature {
+      margin-top: 2rem;
+      background: var(--bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+    }
+    .media-feature h4 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.6rem;
+      color: var(--heading);
+      margin: 0;
+    }
+    .media-feature .media-blurb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      max-width: 28rem;
+    }
+    .edu-strip { background: var(--bg-raised); padding-top: 3rem; padding-bottom: 3rem; }
+
+    .gallery {
+      display: grid; gap: 0.75rem;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .gallery figure {
+      position: relative; overflow: hidden; border-radius: var(--radius);
+      background: var(--gallery-ph); cursor: zoom-in; margin: 0;
+    }
+    .gallery figure img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .gallery figure:hover img { transform: scale(1.04); }
+    .gallery figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 1.5rem 1rem 0.85rem;
+      background: linear-gradient(transparent, rgba(15,26,16,0.78));
+      color: var(--cream); font-size: 0.78rem; letter-spacing: 0.04em;
+      opacity: 0; transition: opacity .25s;
+    }
+    .gallery figure:hover figcaption { opacity: 1; }
+
+    .span-8 { grid-column: span 8; aspect-ratio: 16/10; }
+    .span-4 { grid-column: span 4; aspect-ratio: 4/5; }
+    .span-6 { grid-column: span 6; aspect-ratio: 4/3; }
+    .span-3 { grid-column: span 3; aspect-ratio: 1; }
+    .span-12 { grid-column: span 12; aspect-ratio: 21/8; }
+    .span-5 { grid-column: span 5; aspect-ratio: 5/4; }
+    .span-7 { grid-column: span 7; aspect-ratio: 16/10; }
+
+    /* CAPABILITIES */
+    .skills { background: var(--deep); color: var(--cream); }
+    .skills .section-label { color: var(--sage); }
+    .skills .section-title { color: var(--cream); }
+    .skills .section-intro { color: rgba(247,243,234,0.72); }
+    .skill-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    .skill-card {
+      border: 1px solid rgba(143,173,122,0.25);
+      background: rgba(255,255,255,0.03);
+      padding: 1.5rem 1.4rem; border-radius: var(--radius);
+    }
+    .skill-card h3 {
+      font-family: "Cormorant Garamond", serif; font-size: 1.45rem;
+      color: var(--gold); margin-bottom: 0.65rem;
+    }
+    .skill-card ul { list-style: none; display: grid; gap: 0.4rem; }
+    .skill-card li {
+      font-size: 0.95rem; color: rgba(247,243,234,0.85);
+      padding-left: 1rem; position: relative;
+    }
+    .skill-card li::before {
+      content: ""; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--sage); position: absolute; left: 0; top: 0.55em;
+    }
+
+    /* EXPERIENCE */
+    .experience { background: var(--bg); }
+    .timeline { position: relative; max-width: 820px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 0.55rem; top: 0.4rem; bottom: 0.4rem;
+      width: 2px; background: linear-gradient(var(--gold), var(--label));
+    }
+    .tl-item { position: relative; padding: 0 0 2rem 2.25rem; }
+    .tl-item::before {
+      content: ""; position: absolute; left: 0.25rem; top: 0.45rem;
+      width: 0.7rem; height: 0.7rem; border-radius: 50%;
+      background: var(--heading); border: 2px solid var(--gold);
+    }
+    .tl-role {
+      font-family: "Cormorant Garamond", serif; font-size: 1.45rem;
+      color: var(--heading); font-weight: 700; line-height: 1.15;
+    }
+    .tl-meta {
+      font-size: 0.82rem; color: var(--label); font-weight: 600;
+      letter-spacing: 0.04em; margin: 0.25rem 0 0.55rem;
+    }
+    .tl-item p { color: var(--text-muted); font-size: 0.98rem; }
+
+    /* CONTACT */
+    .contact {
+      background:
+        linear-gradient(120deg, rgba(15,26,16,0.92), rgba(26,46,26,0.78)),
+        url("assets/p22_exported_DD9A0719-A51B-4975-9773-721ED31.jpg") center/cover;
+      color: var(--cream); text-align: center; padding: 6rem 2rem;
+    }
+    .contact h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 0.75rem;
+    }
+    .contact p { max-width: 36rem; margin: 0 auto 2rem; opacity: 0.9; }
+    .contact-links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+    }
+    .contact-links a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.4rem; border-radius: 999px;
+      background: var(--gold); color: var(--deep); font-weight: 600; font-size: 0.9rem;
+    }
+    .contact-links a.ghost {
+      background: transparent; color: var(--cream);
+      border: 1px solid rgba(247,243,234,0.45);
+    }
+    .contact-links a:hover { filter: brightness(1.06); }
+
+    footer {
+      background: var(--deep); color: rgba(247,243,234,0.55);
+      text-align: center; padding: 1.5rem 1rem; font-size: 0.8rem;
+    }
+    footer strong { color: var(--cream); }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(8,12,8,0.94);
+      display: none; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: min(1200px, 94vw); max-height: 88vh;
+      object-fit: contain; border-radius: 2px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.25rem; right: 1.5rem;
+      color: var(--cream); font-size: 2rem; line-height: 1;
+    }
+    .lightbox-cap {
+      position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+      color: var(--sand); font-size: 0.85rem; text-align: center;
+    }
+
+    /* RESPONSIVE */
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    /* MINING / QUARRY SECTION */
+    .mining {
+      background: #121418;
+      color: var(--cream);
+      padding: 5.5rem 2rem;
+    }
+    .mining .section-label { color: #d4a84b; }
+    .mining .section-title { color: var(--cream); }
+    .mining .section-title em { color: #d4a84b; }
+    .mining .section-intro { color: rgba(247,243,234,0.72); }
+    .mining-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 0 0 2.5rem;
+    }
+    .mining-meta-card {
+      border: 1px solid rgba(212,168,75,0.28);
+      background: rgba(255,255,255,0.03);
+      padding: 1.1rem 1rem;
+      border-radius: var(--radius);
+    }
+    .mining-meta-card strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.55rem;
+      color: #d4a84b;
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+    .mining-meta-card span {
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(247,243,234,0.7);
+    }
+    .mining .gallery figure { background: #1a1d22; }
+    .mining .tag {
+      background: #d4a84b;
+      color: #121418;
+    }
+    .mining .project-desc { color: rgba(247,243,234,0.75); }
+    .mining-sites {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(247,243,234,0.12);
+    }
+    .mining-sites h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.5rem;
+      color: #d4a84b;
+      margin-bottom: 1rem;
+    }
+    .site-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .site-pills span {
+      border: 1px solid rgba(212,168,75,0.3);
+      color: var(--cream);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: rgba(212,168,75,0.08);
+    }
+
+    /* COMPOSITES / FRP SECTION */
+    .composites {
+      background: linear-gradient(180deg, #0e2433 0%, #143347 100%);
+      color: var(--cream);
+      padding: 5.5rem 2rem;
+    }
+    .composites .section-label { color: #5ec8e8; }
+    .composites .section-title { color: var(--cream); }
+    .composites .section-title em { color: #5ec8e8; }
+    .composites .section-intro { color: rgba(247,243,234,0.75); }
+    .composites-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 0 0 2.5rem;
+    }
+    .composites-meta-card {
+      border: 1px solid rgba(94,200,232,0.28);
+      background: rgba(255,255,255,0.04);
+      padding: 1.1rem 1rem;
+      border-radius: var(--radius);
+    }
+    .composites-meta-card strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      color: #5ec8e8;
+      line-height: 1.15;
+      margin-bottom: 0.3rem;
+    }
+    .composites-meta-card span {
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(247,243,234,0.7);
+    }
+    .composites .gallery figure { background: #0a1a24; }
+    .composites .tag {
+      background: #5ec8e8;
+      color: #0e2433;
+    }
+    .composites .project-desc { color: rgba(247,243,234,0.78); }
+    .composites .project-head { margin-bottom: 1.5rem; }
+
+    @media (max-width: 960px) {
+      .about { grid-template-columns: 1fr; }
+      .about-photo { aspect-ratio: 16/11; max-height: 420px; }
+      .project-head { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .award-grid { grid-template-columns: 1fr; }
+      .skill-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      /* mining-meta already handled above */
+      .mining-meta { grid-template-columns: repeat(2, 1fr); }
+      .composites-meta { grid-template-columns: repeat(2, 1fr); }
+      .company-bar { grid-template-columns: 1fr; }
+      .companies-banner .wrap { padding: 0 0.4rem; }
+      .logo-row { gap: 0.3rem; }
+      .logo-cell { min-height: 58px; padding: 0.4rem 0.25rem; }
+      .logo-cell img { max-height: 36px; }
+      .span-8, .span-4, .span-6, .span-3, .span-5, .span-7, .span-12 {
+        grid-column: span 12; aspect-ratio: 16/11;
+      }
+      .gallery { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav-links, .nav-actions .nav-cta { display: none; }
+      .nav-toggle { display: block; order: 3; }
+      .nav-actions { gap: 0.4rem; order: 2; }
+      .nav-brand { order: 1; margin-right: auto; }
+      .nav.open .nav-links {
+        display: flex; flex-direction: column; position: absolute;
+        top: 100%; left: 0; right: 0; background: var(--deep);
+        padding: 1.25rem 1.5rem 1.75rem; gap: 1rem;
+      }
+      .nav.open .nav-actions .nav-cta {
+        display: none;
+      }
+      .hero-content { padding-bottom: 4rem; }
+      section { padding: 3.5rem 1.25rem; }
+      /* Keep logo strip as one horizontal scroll row on phones */
+      .companies-banner { padding-left: 0; padding-right: 0; }
+      .companies-banner .wrap { padding: 0 0.5rem; }
+      .logo-row {
+        flex-wrap: nowrap;
+        width: max-content;
+        min-width: 100%;
+        gap: 0.4rem;
+        padding-bottom: 0.25rem;
+      }
+      .logo-cell {
+        flex: 0 0 auto;
+        width: 96px;
+        min-height: 56px;
+      }
+      .logo-cell img { max-height: 34px; max-width: 84px; }
+    }
+
+    @media print {
+      .nav, .hero-scroll, .lightbox, .theme-toggle { display: none !important; }
+      .hero { min-height: 50vh; page-break-after: always; }
+      section { page-break-inside: avoid; }
+      html[data-theme="dark"] body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="#top">Will Power <span>Landscape &amp; Plant</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#projects">Landscape</a></li>
+      <li><a href="#companies">Career</a></li>
+      <li><a href="#mining">Mining</a></li>
+      <li><a href="#composites">FRP / SIS</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <picture>
+        <source srcset="assets/hero-cover.webp" type="image/webp" />
+        <img
+          class="hero-photo"
+          src="assets/hero-cover.jpg"
+          alt="Kingswood — 17 Balham Avenue: nightscape pool and stone outdoor kitchen"
+          width="3840"
+          height="2893"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Qualified Landscaper · Cert III Landscape Construction</p>
+        <h1>Crafted outdoor spaces.<br /><em>Built to last.</em></h1>
+        <p class="hero-lead">
+          High-end residential and commercial landscape construction across South Australia —
+          stone, paving, irrigation, and outdoor living delivered with trade precision.
+        </p>
+        <div class="hero-meta">
+          <div><strong>10+</strong> Years landscape construction</div>
+          <div><strong>3×</strong> MLSA award-winning projects</div>
+          <div><strong>SA</strong> Fairview Park · Adelaide</div>
+        </div>
+      </div>
+      <div class="hero-scroll">Scroll to explore</div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about wrap" id="about">
+      <div class="about-photo">
+        <img src="assets/p37_IMG_0001.jpg" alt="Custom stone pizza oven feature with natural stone cladding and lighting" />
+        <div class="about-badge">
+          <strong>Stonemasonry &amp; Feature Work</strong>
+          <span>Natural stone · Custom outdoor living</span>
+        </div>
+      </div>
+      <div class="about-copy">
+        <p class="section-label">Profile</p>
+        <h2 class="section-title">Will Power — <em>Construction Landscaper</em></h2>
+        <p>
+          I am a dedicated civil trades professional with over a decade of experience across
+          <strong>landscape construction, earthworks, and infrastructure</strong>. My career began in landscaping,
+          building a foundation in site preparation, drainage, irrigation, plumbing, paving, and stonemasonry —
+          skills I still bring to every outdoor project.
+        </p>
+        <p>
+          At <strong>Garden Partner</strong>, an award-winning landscaping company, I specialised in high-end
+          residential and commercial landscapes where quality, precision, and craftsmanship were paramount.
+          Over nearly a decade I became a versatile tradesman and supervisor, leading crews to deliver projects
+          that set industry benchmarks.
+        </p>
+        <p>
+          Today I combine that landscaping craft with leadership and heavy plant expertise —
+          ready to deliver premium outdoor environments from concept through construction.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Cert III Landscape Construction</span>
+          <span class="pill">Apprenticeship completed</span>
+          <span class="pill">Crew supervision</span>
+          <span class="pill">High-end residential</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num">2012–21</div>
+          <div class="stat-label">Garden Partner tenure</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">$250k+</div>
+          <div class="stat-label">Award residential gardens</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Full trade</div>
+          <div class="stat-label">Paving · Stone · Irrigation</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Lead</div>
+          <div class="stat-label">Supervisor experience</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AWARDS -->
+    <section class="awards" id="awards">
+      <div class="wrap">
+        <p class="section-label">Recognition</p>
+        <h2 class="section-title">Industry <em>awards</em></h2>
+        <p class="section-intro">
+          Direct contribution to celebrated projects recognised by the Master Landscapers of South Australia (MLSA).
+        </p>
+        <div class="award-company">
+          <img src="assets/logo-garden-partner.png" alt="Garden Partner logo" width="80" height="100" />
+          <p>
+            <strong>Garden Partner</strong>
+            Award-winning landscaping company — MLSA project contributor (2012–2021)
+          </p>
+        </div>
+        <div class="award-grid">
+          <article class="award-card">
+            <p class="award-year">2018 · MLSA · Garden Partner</p>
+            <h3>Best Residential Garden over $250,000</h3>
+            <p>Premium residential landscape construction delivered to the highest craftsmanship standard.</p>
+          </article>
+          <article class="award-card">
+            <p class="award-year">2018 · MLSA · Garden Partner</p>
+            <h3>Landscape Feature of the Year</h3>
+            <p>Feature construction recognised for design integration, materials, and execution quality.</p>
+          </article>
+          <article class="award-card">
+            <p class="award-year">2022 · MLSA · St Githas Garden · Garden Partner</p>
+            <h3>Judges Choice Award — Bridgewater</h3>
+            <p>St Githas Garden, Bridgewater — also a feature garden in the 2023 SA Landscape Festival, and covered by Channel 9’s <em>Hello SA</em>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">Finished <em>landscape projects</em></h2>
+        <p class="section-intro">
+          A visual record of completed outdoor construction — estate gardens, contemporary courtyards,
+          natural stone, paving, and outdoor living spaces delivered through Garden Partner and Leeman Earthworks.
+        </p>
+
+        <div class="company-bar" aria-label="Landscaping companies">
+          <div class="company-card">
+            <img src="assets/logo-garden-partner.png" alt="Garden Partner" width="120" height="156" />
+            <div class="company-meta">
+              <strong>Garden Partner</strong>
+              <span>Construction Landscaper / Supervisor · Dec 2012 – May 2021</span>
+              <span class="pill-mini">MLSA awards won here</span>
+            </div>
+          </div>
+          <div class="company-card dark">
+            <img src="assets/logo-leeman.png" alt="Leeman Earthworks" width="160" height="84" />
+            <div class="company-meta">
+              <strong>Leeman Earthworks</strong>
+              <span>Lead Supervisor · Sep 2024 – Apr 2025</span>
+              <span class="pill-mini" style="background:rgba(255,140,0,0.25);color:#ffb366;">Civil &amp; landscape earthworks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project: Kingswood - 17 Balham Avenue -->
+        <div class="project-block mini-portfolio" id="project-kingswood">
+          <div class="project-head">
+            <div>
+              <p class="section-label">Project portfolio</p>
+              <h3 class="section-title" style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.5rem;">
+                Kingswood <em>— 17 Balham Avenue</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">Hero project</span>
+                <span class="tag">Stonemasonry</span>
+                <span class="tag">Pool surrounds</span>
+                <span class="tag">Outdoor living</span>
+                <span class="tag">Feature lighting</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Premium residential landscape construction at 17 Balham Avenue, Kingswood — luxury pool surrounds,
+              glass balustrade, natural stone feature walls, paved outdoor living, and a custom stone pizza-oven
+              pavilion with architectural lighting. Cover image of this portfolio.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure class="span-7" data-full="assets/hero-cover.jpg">
+              <img src="assets/hero-cover.jpg" alt="Kingswood 17 Balham Avenue — nightscape pool and stone pavilion" loading="lazy" />
+              <figcaption>Hero · Nightscape pool &amp; stone pavilion</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/p37_IMG_0001.jpg">
+              <img src="assets/p37_IMG_0001.jpg" alt="Kingswood — stone pizza oven detail" loading="lazy" />
+              <figcaption>Stone pizza oven detail</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/stone01.jpg">
+              <img src="assets/stone01.jpg" alt="Kingswood — natural stone feature wall poolside" loading="lazy" />
+              <figcaption>Natural stone feature wall · Poolside</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Stonemasonry craft -->
+        <div class="project-block" id="stonemasonry">
+          <div class="project-head">
+            <div>
+              <p class="section-label">Featured Craft</p>
+              <h3 class="section-title" style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.5rem;">
+                Stonemasonry <em>&amp; feature stonework</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">Natural stone</span>
+                <span class="tag">Retaining walls</span>
+                <span class="tag">Terraces</span>
+                <span class="tag">Heritage integration</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Hand-laid natural stone across residential and estate sites — curved retaining walls,
+              limestone terraces and steps, heritage sandstone settings, and precision feature walls
+              built for durability and finish quality.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure class="span-6" data-full="assets/stone02.jpg">
+              <img src="assets/stone02.jpg" alt="Curved natural stone retaining wall with brick edging and lawn" loading="lazy" />
+              <figcaption>Curved stone retaining wall · Brick edge</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/stone03.jpg">
+              <img src="assets/stone03.jpg" alt="Stone wall return corner with random rubble construction" loading="lazy" />
+              <figcaption>Stone wall return · Random rubble finish</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/stone05.jpg">
+              <img src="assets/stone05.jpg" alt="Heritage sandstone cottage garden with stone walls and paving" loading="lazy" />
+              <figcaption>Heritage stone setting · Paths &amp; walls</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/stone06.jpg">
+              <img src="assets/stone06.jpg" alt="Crew constructing natural stone retaining wall on site" loading="lazy" />
+              <figcaption>On-site stone construction · Team craft</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Project: St Githas Garden - Bridgewater -->
+        <div class="project-block mini-portfolio" id="project-st-githas">
+          <div class="project-head">
+            <div>
+              <p class="section-label">Project portfolio · Bridgewater SA</p>
+              <h3 class="section-title" style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.5rem;">
+                St Githas Garden <em>— Bridgewater</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">2022 MLSA Judges Choice</span>
+                <span class="tag">2023 SA Landscape Festival</span>
+                <span class="tag">Channel 9 Hello SA</span>
+                <span class="tag">Estate gardens</span>
+                <span class="tag">Stone colonnade</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Award-winning formal garden construction at St Githas Garden, Bridgewater — axial lawns,
+              stepping-stone paths, gravel terraces, stone retaining walls, fountain courtyard, and
+              extensive stone-piered pergola colonnades integrated with a heritage sandstone residence.
+              <strong>2022 MLSA Judges Choice Award</strong> · feature garden in the
+              <strong>2023 SA Landscape Festival</strong> · featured on Channel 9’s
+              <em>Hello SA</em>.
+            </p>
+          </div>
+          <div class="project-highlights" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin:0 0 1.25rem;">
+            <div class="project-highlight-card">
+              <div class="ph-label">Award</div>
+              <div class="ph-title">2022 MLSA Judges Choice</div>
+            </div>
+            <div class="project-highlight-card" style="border-left-color:var(--moss);">
+              <div class="ph-label moss">Festival</div>
+              <div class="ph-title">2023 SA Landscape Festival</div>
+            </div>
+            <div class="project-highlight-card" style="border-left-color:var(--stone);">
+              <div class="ph-label muted">Media</div>
+              <div class="ph-title">Channel 9 · Hello SA</div>
+            </div>
+          </div>
+          <div class="gallery">
+            <figure class="span-12" data-full="assets/p10_20201009_071413.jpg">
+              <img src="assets/p10_20201009_071413.jpg" alt="St Githas Garden Bridgewater — panoramic formal garden axis" loading="lazy" />
+              <figcaption>Formal axis · Lawn · Stepping-stone path</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p02_20201009_071447.jpg">
+              <img src="assets/p02_20201009_071447.jpg" alt="St Githas Garden — terrace view to formal lawn" loading="lazy" />
+              <figcaption>Terrace view to formal lawn</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p03_20201009_071524.jpg">
+              <img src="assets/p03_20201009_071524.jpg" alt="St Githas Garden — garden rooms and sculpture" loading="lazy" />
+              <figcaption>Garden rooms &amp; sculpture</figcaption>
+            </figure>
+            <figure class="span-7" data-full="assets/p22_exported_DD9A0719-A51B-4975-9773-721ED31.jpg">
+              <img src="assets/p22_exported_DD9A0719-A51B-4975-9773-721ED31.jpg" alt="St Githas Garden — fountain courtyard" loading="lazy" />
+              <figcaption>Fountain courtyard · Formal beds</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/p19_exported_B6827832-8140-4550-81DD-D2A41CF.jpg">
+              <img src="assets/p19_exported_B6827832-8140-4550-81DD-D2A41CF.jpg" alt="St Githas Garden — fountain feature" loading="lazy" />
+              <figcaption>Fountain feature</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/p15_exported_876BDBAF-DBDA-4225-856A-37E1E02.jpg">
+              <img src="assets/p15_exported_876BDBAF-DBDA-4225-856A-37E1E02.jpg" alt="St Githas Garden — stone colonnade" loading="lazy" />
+              <figcaption>Colonnade · Stepping stones</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/p13_exported_97BCBAEB-01B4-43F6-9795-2CB4F97.jpg">
+              <img src="assets/p13_exported_97BCBAEB-01B4-43F6-9795-2CB4F97.jpg" alt="St Githas Garden — curved lawn path" loading="lazy" />
+              <figcaption>Curved turf path · Pergola</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/p14_exported_276D47A2-B178-43BB-B05B-766AEEE.jpg">
+              <img src="assets/p14_exported_276D47A2-B178-43BB-B05B-766AEEE.jpg" alt="St Githas Garden — limestone terrace" loading="lazy" />
+              <figcaption>Limestone terrace &amp; retaining</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/stone04.jpg">
+              <img src="assets/stone04.jpg" alt="St Githas Garden — limestone terrace and stone colonnade" loading="lazy" />
+              <figcaption>Limestone terrace · Colonnade view</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p16_exported_1901CE91-9816-4979-9E9D-39D1C98.jpg">
+              <img src="assets/p16_exported_1901CE91-9816-4979-9E9D-39D1C98.jpg" alt="St Githas Garden — bluestone steps" loading="lazy" />
+              <figcaption>Bluestone steps · Sandstone walls</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p24_exported_F2A9D726-59C4-4FBD-A298-38CFE2F.jpg">
+              <img src="assets/p24_exported_F2A9D726-59C4-4FBD-A298-38CFE2F.jpg" alt="St Githas Garden — heritage entry" loading="lazy" />
+              <figcaption>Heritage entry integration</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p12_exported_68FDF761-52D8-40B9-BE90-BD41924.jpg">
+              <img src="assets/p12_exported_68FDF761-52D8-40B9-BE90-BD41924.jpg" alt="St Githas Garden — garden overview" loading="lazy" />
+              <figcaption>Garden overview</figcaption>
+            </figure>
+            <figure class="span-3" data-full="assets/p17_exported_64881E2C-946C-4023-B6AA-3BF9C7E.jpg">
+              <img src="assets/p17_exported_64881E2C-946C-4023-B6AA-3BF9C7E.jpg" alt="St Githas Garden — lawn edge" loading="lazy" />
+              <figcaption>Lawn edge detail</figcaption>
+            </figure>
+            <figure class="span-3" data-full="assets/p21_exported_C83E1E79-5A6A-4EDA-A350-A22D194.jpg">
+              <img src="assets/p21_exported_C83E1E79-5A6A-4EDA-A350-A22D194.jpg" alt="St Githas Garden — colonnade walk" loading="lazy" />
+              <figcaption>Colonnade walk</figcaption>
+            </figure>
+            <figure class="span-3" data-full="assets/p25_exported_F800BB91-05CE-4C49-9535-050D101.jpg">
+              <img src="assets/p25_exported_F800BB91-05CE-4C49-9535-050D101.jpg" alt="St Githas Garden — framed garden view" loading="lazy" />
+              <figcaption>Framed garden view</figcaption>
+            </figure>
+            <figure class="span-3" data-full="assets/p18_exported_A2D10AC8-8181-4F1A-A3C8-CA6D5EF.jpg">
+              <img src="assets/p18_exported_A2D10AC8-8181-4F1A-A3C8-CA6D5EF.jpg" alt="St Githas Garden — colonnade garden" loading="lazy" />
+              <figcaption>Colonnade garden</figcaption>
+            </figure>
+            <figure class="span-3" data-full="assets/p20_exported_C00D192C-4070-4159-8F69-C1CB98D.jpg">
+              <img src="assets/p20_exported_C00D192C-4070-4159-8F69-C1CB98D.jpg" alt="St Githas Garden — terrace overlook" loading="lazy" />
+              <figcaption>Terrace overlook</figcaption>
+            </figure>
+            <figure class="span-3" data-full="assets/p23_exported_F1F022B8-0CA6-457E-A9DA-F08EE0C.jpg">
+              <img src="assets/p23_exported_F1F022B8-0CA6-457E-A9DA-F08EE0C.jpg" alt="St Githas Garden — formal planting" loading="lazy" />
+              <figcaption>Formal planting</figcaption>
+            </figure>
+            <figure class="span-3" data-full="assets/p26_exported_FFA60915-8046-49C9-A535-891F5EE.jpg">
+              <img src="assets/p26_exported_FFA60915-8046-49C9-A535-891F5EE.jpg" alt="St Githas Garden — garden axis" loading="lazy" />
+              <figcaption>Garden axis</figcaption>
+            </figure>
+          </div>
+          <div class="media-feature">
+            <div style="padding:1.25rem 1.5rem 0.75rem;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0.75rem;">
+              <div>
+                <p class="section-label" style="margin-bottom:0.35rem;">As featured on</p>
+                <h4>
+                  Channel 9 · <em style="font-weight:400;color:var(--label);">Hello SA</em>
+                </h4>
+              </div>
+              <p class="media-blurb">
+                St Githa’s Garden segment from <em>Hello SA</em> — 9Now capture cropped, frame-locked at 30&nbsp;fps, and delivered as smooth 1080p (UHD master available).
+              </p>
+            </div>
+            <div class="media-player" style="position:relative;background:#0a0f0a;aspect-ratio:16/9;">
+              <video controls playsinline preload="metadata"
+                poster="media/st-githas-hello-sa-poster.jpg"
+                style="width:100%;height:100%;display:block;object-fit:cover;background:#0a0f0a;">
+                <source src="media/st-githas-hello-sa.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Contemporary courtyard -->
+        <div class="project-block">
+          <div class="project-head">
+            <div>
+              <p class="section-label">Featured Project 03</p>
+              <h3 class="section-title" style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.5rem;">
+                Contemporary Courtyard <em>&amp; Water Garden</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">Courtyard</span>
+                <span class="tag">Water feature</span>
+                <span class="tag">Crazy paving</span>
+                <span class="tag">Built seating</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Intimate courtyard with reflective pond, built-in concrete seating, gravel surface,
+              and a side path finished in irregular stone crazy paving with contrasting joints.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure class="span-7" data-full="assets/p04_20201204_141903.jpg">
+              <img src="assets/p04_20201204_141903.jpg" alt="Courtyard with pond and built-in seating" loading="lazy" />
+              <figcaption>Pond · Seating · Gravel court</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/p05_20201204_144041-2.jpg">
+              <img src="assets/p05_20201204_144041-2.jpg" alt="Irregular stone paving pathway" loading="lazy" />
+              <figcaption>Crazy paving path</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Project 4: Paving & outdoor living -->
+        <div class="project-block">
+          <div class="project-head">
+            <div>
+              <p class="section-label">Featured Project 04</p>
+              <h3 class="section-title" style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.5rem;">
+                Precision Paving <em>&amp; Outdoor Living</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">Paving</span>
+                <span class="tag">Undercover outdoor</span>
+                <span class="tag">Commercial entry</span>
+                <span class="tag">Residential</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Large-format tiled outdoor rooms under existing structures, commercial entrance paving with
+              patterned layout, and refined residential entry paving with gravel and curved brick edging.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure class="span-6" data-full="assets/p07_20210326_144419.jpg">
+              <img src="assets/p07_20210326_144419.jpg" alt="Grey large format paving under outdoor cover" loading="lazy" />
+              <figcaption>Large-format outdoor paving</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p11_20210326_144430.jpg">
+              <img src="assets/p11_20210326_144430.jpg" alt="Completed outdoor living paved space" loading="lazy" />
+              <figcaption>Completed outdoor room</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p09_20200806_161817.jpg">
+              <img src="assets/p09_20200806_161817.jpg" alt="Commercial building entrance paving" loading="lazy" />
+              <figcaption>Commercial entry paving</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p32_IMG_0077.jpg">
+              <img src="assets/p32_IMG_0077.jpg" alt="Residential entry with stepping stones and gravel" loading="lazy" />
+              <figcaption>Residential entry feature</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Project 5: Stone & walls -->
+        <div class="project-block">
+          <div class="project-head">
+            <div>
+              <p class="section-label">Featured Project 05</p>
+              <h3 class="section-title" style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.5rem;">
+                Natural Stone <em>Walls &amp; Gardens</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">Retaining walls</span>
+                <span class="tag">Dry stone</span>
+                <span class="tag">Planting beds</span>
+                <span class="tag">Timber features</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Hand-laid natural stone retaining and feature walls, integrated planting beds, timber raised
+              garden structures, and soft landscape construction that ties architecture to the garden.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure class="span-6" data-full="assets/p35_IMG_20190125_131956.jpg">
+              <img src="assets/p35_IMG_20190125_131956.jpg" alt="Stone planter walls and grey paving path" loading="lazy" />
+              <figcaption>Stone planters &amp; path</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/p36_IMG_20190125_132008.jpg">
+              <img src="assets/p36_IMG_20190125_132008.jpg" alt="Curved stone wall garden and stepping path" loading="lazy" />
+              <figcaption>Curved wall &amp; stepping path</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/p33_IMG_0099.jpg">
+              <img src="assets/p33_IMG_0099.jpg" alt="Natural stone wall and paved surface" loading="lazy" />
+              <figcaption>Natural stone walling</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/p30_MVIMG_20180327_180743.jpg">
+              <img src="assets/p30_MVIMG_20180327_180743.jpg" alt="Timber raised garden bed with paver path" loading="lazy" />
+              <figcaption>Timber raised garden</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/p34_IMG_20190115_142003.jpg">
+              <img src="assets/p34_IMG_20190115_142003.jpg" alt="Timber pergola and exposed aggregate path" loading="lazy" />
+              <figcaption>Pergola &amp; path works</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMPANIES I'VE REPRESENTED -->
+    <section class="companies-banner" id="companies" aria-label="Career Engagements">
+      <div class="wrap">
+        <p class="section-label">Career path</p>
+        <h2 class="section-title">Career <em>Engagements</em></h2>
+        <p class="section-intro">
+          Trusted on high-end residential landscapes, civil works, emergency excavation, and national quarry &amp; mining production.
+        </p>
+        <div class="logo-row">
+          <div class="logo-cell" title="Garden Partner">
+            <img src="assets/co-garden-partner.png" alt="Garden Partner" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="Summit Landscape">
+            <img src="assets/co-summit-landscape.png" alt="Summit Landscape" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="Remo Contractors">
+            <img src="assets/co-remo.png" alt="Remo Contractors Pty Ltd" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="AusCrush and Recycle">
+            <img src="assets/co-auscrush.png" alt="AusCrush Crush &amp; Recycle" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="Boral">
+            <img src="assets/co-boral.png" alt="Boral" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="Hanson HeidelbergCement Group">
+            <img src="assets/co-hanson.png" alt="Hanson HeidelbergCement Group" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="ADBRI Quarries">
+            <img src="assets/co-adbri.png" alt="ADBRI Quarries" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="Agile Mining Services">
+            <img src="assets/co-agile-mining.png" alt="Agile Mining Services" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell" title="Dial A Digger">
+            <img src="assets/co-dial-a-digger.png" alt="Dial A Digger earthmoving and trenching contractors" width="128" height="64" loading="lazy" />
+          </div>
+          <div class="logo-cell dark" title="Leeman Earthworks">
+            <img src="assets/co-leeman.png" alt="Leeman Earthworks" width="148" height="64" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINING / QUARRYING / CRUSHING -->
+    <section class="mining" id="mining">
+      <div class="wrap">
+        <p class="section-label">AusCrush and Recycle · Aug 2021 – Jun 2024</p>
+        <h2 class="section-title">Mining, quarrying <em>&amp; crushing</em></h2>
+        <p class="section-intro">
+          Specialised in quarrying operations and excavator/loader work across Australia —
+          feeding crushing plants, managing stockpiles, and keeping production flowing under strict
+          safety and environmental standards. Relied on as a go-to loader operator for accuracy,
+          efficiency, and consistency in high-pressure environments.
+        </p>
+
+        <div class="mining-meta">
+          <div class="mining-meta-card">
+            <strong>2000+</strong>
+            <span>Hours excavator</span>
+          </div>
+          <div class="mining-meta-card">
+            <strong>2000+</strong>
+            <span>Hours loader</span>
+          </div>
+          <div class="mining-meta-card">
+            <strong>3 years</strong>
+            <span>AusCrush tenure</span>
+          </div>
+          <div class="mining-meta-card">
+            <strong>National</strong>
+            <span>SA · VIC · QLD · WA</span>
+          </div>
+        </div>
+
+        <div class="project-block" style="margin-bottom:2.5rem;">
+          <div class="project-head">
+            <div>
+              <p class="section-label" style="color:#d4a84b;">Plant &amp; production</p>
+              <h3 class="section-title" style="font-size:clamp(1.35rem,2.6vw,2.1rem);margin-bottom:0.5rem;letter-spacing:0.02em;">
+                EXCAVATORS — LOADERS — MOBILE PLANT<br /><em>[CRUSHING &amp; SCREENING]</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">Crusher chain</span>
+                <span class="tag">Loader operation</span>
+                <span class="tag">Excavator</span>
+                <span class="tag">Stockpiles</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Crusher chain setup and feed, material handling, night and day shift production, and
+              heavy plant operation in active quarry and mining environments — including AusCrush-branded Hitachi loader work.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure class="span-7" data-full="assets/ac01.jpg">
+              <img src="assets/ac01.jpg" alt="Crusher chain set up in quarry pit" loading="lazy" />
+              <figcaption>Crusher chain · Quarry face</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/ac11.jpg">
+              <img src="assets/ac11.jpg" alt="Hitachi front end loader with AusCrush branding at quarry face" loading="lazy" />
+              <figcaption>Hitachi loader · AusCrush &amp; Recycle</figcaption>
+            </figure>
+            <figure class="span-7" data-full="assets/ac08.jpg">
+              <img src="assets/ac08.jpg" alt="Cab view of crushing operation and quarry wall" loading="lazy" />
+              <figcaption>Cab view · Live crusher chain</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/ac04.jpg">
+              <img src="assets/ac04.jpg" alt="Large yellow front end loader on quarry hardstand" loading="lazy" />
+              <figcaption>Front-end loader · Stockpile work</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/ac03.jpg">
+              <img src="assets/ac03.jpg" alt="Komatsu excavator operating under lights at night" loading="lazy" />
+              <figcaption>Komatsu excavator · Night shift</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/ac06.jpg">
+              <img src="assets/ac06.jpg" alt="Excavator feeding crushing plant with dump truck on mine site" loading="lazy" />
+              <figcaption>Excavator feed · Plant production</figcaption>
+            </figure>
+            <figure class="span-4" data-full="assets/ac09.jpg">
+              <img src="assets/ac09.jpg" alt="Wet weather crushing and loading operation viewed from plant" loading="lazy" />
+              <figcaption>All-weather production · Plant feed</figcaption>
+            </figure>
+            <figure class="span-7" data-full="assets/ac07.jpg">
+              <img src="assets/ac07.jpg" alt="Open-cut mine pit viewed from the rim with crew in high-vis" loading="lazy" />
+              <figcaption>Open-cut mining environment</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/ac10.jpg">
+              <img src="assets/ac10.jpg" alt="Crew member on site beside mobile crushing plant" loading="lazy" />
+              <figcaption>On-site crew · Production environment</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="mining-sites">
+          <h3>Sites operated</h3>
+          <div class="site-pills">
+            <span>Boral Quarry — Murray Bridge SA</span>
+            <span>Boral Quarry — Linwood SA</span>
+            <span>ADBRI Quarry — Penrice SA</span>
+            <span>Hanson Quarry — White Rock SA</span>
+            <span>Hanson Quarry — Kanmantoo SA</span>
+            <span>Boral Quarry — Deer Park VIC</span>
+            <span>Boral Quarry — Petrie QLD</span>
+            <span>Hanson Quarry — Bunbury WA</span>
+            <span>Peculiar Knob Iron Ore — PEAK Iron Mines SA</span>
+          </div>
+          <p style="margin-top:1.5rem;font-size:0.95rem;color:rgba(247,243,234,0.65);max-width:48rem;">
+            Plant experience includes Komatsu WA470/WA480/WA500, Hitachi ZW370, CAT 980/920K, Kobelco SK300/SK500,
+            Komatsu PC360/PC490, Hitachi EX1200 and more — with daily pre-starts, preventive maintenance support,
+            and production troubleshooting to keep crusher chains running.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUSTAINABLE INFRASTRUCTURE SYSTEMS / FRP COMPOSITES -->
+    <section class="composites" id="composites">
+      <div class="wrap">
+        <p class="section-label">Sustainable Infrastructure Systems · Apr 2025 – Present · Wingfield, SA</p>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3.2vw,2.6rem);">
+          [FRP] Fibreglass Reinforced Polymer<br /><em>Composite Technician</em>
+        </h2>
+        <p class="section-intro">
+          Transitioned into composite infrastructure fabrication — building and finishing large-scale
+          FRP products to strict tolerances. Began as a Composite Technician and was promoted within
+          two months to <strong style="color:#fff;">Team Leader – Head of Finishing</strong>, leading
+          workflow, quality, and safety across the production floor.
+        </p>
+
+        <div class="composites-meta">
+          <div class="composites-meta-card">
+            <strong>Composite Tech</strong>
+            <span>FRP fabrication</span>
+          </div>
+          <div class="composites-meta-card">
+            <strong>Team Leader</strong>
+            <span>Head of Finishing</span>
+          </div>
+          <div class="composites-meta-card">
+            <strong>2 months</strong>
+            <span>To promotion</span>
+          </div>
+          <div class="composites-meta-card">
+            <strong>Wingfield</strong>
+            <span>South Australia</span>
+          </div>
+        </div>
+
+        <div class="project-block" style="margin-bottom:0;">
+          <div class="project-head">
+            <div>
+              <p class="section-label">Fabrication &amp; finishing</p>
+              <h3 class="section-title" style="font-size:clamp(1.35rem,2.6vw,2rem);margin-bottom:0.5rem;">
+                FRP panels, structural sections <em>&amp; production</em>
+              </h3>
+              <div class="project-tags">
+                <span class="tag">FRP / GRP</span>
+                <span class="tag">Composite layup</span>
+                <span class="tag">Finishing</span>
+                <span class="tag">Quality control</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Large FRP panel fabrication, vacuum-assisted processing, grit-finish surfaces, structural
+              I-beam sections, and floor finishing workflows — combining trade precision with modern
+              composite manufacturing standards.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure class="span-7" data-full="assets/sis02.jpg">
+              <img src="assets/sis02.jpg" alt="Large FRP composite panel with grit finish being worked on by production crew" loading="lazy" />
+              <figcaption>Large FRP panel · Grit finish production</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/sis03.jpg">
+              <img src="assets/sis03.jpg" alt="Close-up of FRP panel grit surface texture with finishing crew" loading="lazy" />
+              <figcaption>Surface finish detail · Finishing team</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/sis01.jpg">
+              <img src="assets/sis01.jpg" alt="Workshop floor with large FRP panels and fabrication crew" loading="lazy" />
+              <figcaption>Production floor · Panel assembly</figcaption>
+            </figure>
+            <figure class="span-6" data-full="assets/sis05.jpg">
+              <img src="assets/sis05.jpg" alt="FRP panels supported on barrels in fabrication warehouse with overhead crane" loading="lazy" />
+              <figcaption>Panel staging · Overhead crane bay</figcaption>
+            </figure>
+            <figure class="span-7" data-full="assets/sis04.jpg">
+              <img src="assets/sis04.jpg" alt="Vacuum resin infusion setup on large FRP layup table" loading="lazy" />
+              <figcaption>Vacuum infusion · Composite layup</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/sis06.jpg">
+              <img src="assets/sis06.jpg" alt="Close-up of FRP structural I-beam section" loading="lazy" />
+              <figcaption>FRP structural section · I-beam profile</figcaption>
+            </figure>
+            <figure class="span-5" data-full="assets/sis07.jpg">
+              <img src="assets/sis07.jpg" alt="SIS promotion poster for William Power promoted to Team Leader" loading="lazy" />
+              <figcaption>Promoted to Team Leader · SIS</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+      <div class="wrap">
+        <p class="section-label">Capabilities</p>
+        <h2 class="section-title">Trades, construction <em>&amp; leadership</em></h2>
+        <p class="section-intro">
+          Full landscape construction skill set with crew leadership — from site set-out to finishing trades.
+        </p>
+        <div class="skill-grid">
+          <div class="skill-card">
+            <h3>Landscape trades</h3>
+            <ul>
+              <li>High-end landscape construction</li>
+              <li>Paving &amp; concreting</li>
+              <li>Retaining walls (stone, brick, block)</li>
+              <li>Stonemasonry &amp; feature stonework</li>
+              <li>Irrigation installation &amp; repair</li>
+              <li>Plumbing for outdoor systems</li>
+              <li>Drainage installation</li>
+              <li>Rendering, carpentry &amp; bricklaying</li>
+              <li>Turf management &amp; planting</li>
+              <li>Site preparation, levels &amp; set-out</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Heavy plant &amp; mining</h3>
+            <ul>
+              <li>Expert loader &amp; excavator operation (2000+ hrs each)</li>
+              <li>Crusher chain support &amp; feed</li>
+              <li>Stockpile management &amp; material handling</li>
+              <li>Quarry &amp; mining production environments</li>
+              <li>Pre-start checks &amp; equipment care</li>
+              <li>Roller operation &amp; groundworks</li>
+              <li>Emergency excavation (plumbing / civil)</li>
+              <li>Safety &amp; environmental compliance</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Leadership &amp; composites</h3>
+            <ul>
+              <li>Crew supervision &amp; mentoring</li>
+              <li>Team Leader – Head of Finishing (SIS)</li>
+              <li>FRP composite fabrication &amp; assembly</li>
+              <li>Workflow organisation &amp; QA</li>
+              <li>Client &amp; contractor liaison</li>
+              <li>Safety compliance &amp; risk assessment</li>
+              <li>Residential &amp; commercial civil works</li>
+              <li>Highway &amp; infrastructure support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+      <div class="wrap">
+        <p class="section-label">Career</p>
+        <h2 class="section-title">Experience <em>highlights</em></h2>
+        <p class="section-intro">
+          Landscape-focused career path with progression into civil construction, plant operation, and team leadership.
+        </p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-role">Construction Landscaper / Supervisor — Garden Partner</div>
+            <img class="tl-logo" src="assets/logo-garden-partner.png" alt="Garden Partner" />
+            <div class="tl-meta">Dec 2012 – May 2021 · Award-winning landscaping company · Australia</div>
+            <p>
+              Delivered premium residential and commercial landscapes. Mastered paving, irrigation, retaining walls,
+              stonemasonry, carpentry, and site preparation. Supervised crews for safety, efficiency, and quality.
+              Key contributor to MLSA award-winning projects including Best Residential Garden over $250,000,
+              Landscape Feature of the Year (2018), and Judges Choice — St Githas Garden, Bridgewater (2022).
+            </p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-role">Labourer / Operator — Remo Contractors</div>
+            <div class="tl-meta">May 2021 – Aug 2021 · Highway infrastructure</div>
+            <p>Road base compaction, drainage, trenching, and groundworks on major highway projects.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-role">Crushing Operator — AusCrush and Recycle</div>
+            <div class="tl-meta">Aug 2021 – Jun 2024 · Quarries &amp; mines (SA, VIC, QLD, WA)</div>
+            <p>Loader and excavator operation across multiple quarry and mining sites; 2000+ hours each machine class.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-role">Excavator Operator — Dial A Digger</div>
+            <div class="tl-meta">Jul 2024 – Sep 2024 · Metropolitan emergency excavation</div>
+            <p>Precision excavation for plumbing emergencies, trenching, and residential/commercial site works.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-role">Lead Supervisor — Leeman Earthworks</div>
+            <img class="tl-logo dark-bg" src="assets/logo-leeman.png" alt="Leeman Earthworks" />
+            <div class="tl-meta">Sep 2024 – Apr 2025 · Total backyard specialists</div>
+            <p>Led crews on civil and landscaping earthworks while operating loaders, excavators, and skid-steers.</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-role">Team Leader — Sustainable Infrastructure Systems</div>
+            <div class="tl-meta">Apr 2025 – Present · Wingfield, SA</div>
+            <p>Promoted to Head of Finishing; workflow organisation, team supervision, quality and safety leadership.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION strip -->
+    <section class="edu-strip">
+      <div class="wrap edu-grid">
+        <div class="award-card">
+          <p class="award-year">Education</p>
+          <h3>Certificate III — Landscape Construction</h3>
+          <p>TAFE SA · Urrbrae Campus · Completed apprenticeship</p>
+        </div>
+        <div class="award-card">
+          <p class="award-year">Licences</p>
+          <h3>Loader · Excavator · C Class SA</h3>
+          <p>Working at Heights · Confined Spaces · Senior First Aid</p>
+        </div>
+        <div class="award-card">
+          <p class="award-year">Base</p>
+          <h3>Fairview Park, SA 5126</h3>
+          <p>Available for landscape construction &amp; related civil work</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <h2>Let’s build the next project</h2>
+      <p>
+        Interested in landscape construction, outdoor living builds, or site leadership?
+        Get in touch to discuss opportunities or review further project work.
+      </p>
+      <div class="contact-links">
+        <a href="tel:0487093546">0487 093 546</a>
+        <a href="mailto:willpower93@gmail.com">willpower93@gmail.com</a>
+        <a class="ghost" href="mailto:willpower93@gmail.com?subject=Landscape%20Portfolio%20Enquiry">Request full CV</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Will Power</strong> · Landscape Construction Portfolio · Fairview Park SA · © 2026</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">×</button>
+    <img id="lbImg" src="" alt="" />
+    <div class="lightbox-cap" id="lbCap"></div>
+  </div>
+
+  <script>
+    const nav = document.getElementById("nav");
+    const toggle = document.getElementById("navToggle");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 40);
+    });
+    toggle?.addEventListener("click", () => nav.classList.toggle("open"));
+    document.querySelectorAll(".nav-links a").forEach(a => {
+      a.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    /* Theme toggle — persists preference */
+    const THEME_KEY = "wp-portfolio-theme";
+    const themeBtn = document.getElementById("themeToggle");
+    function currentTheme() {
+      return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    }
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+      if (themeBtn) {
+        const dark = theme === "dark";
+        themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+        themeBtn.setAttribute("title", dark ? "Switch to light mode" : "Switch to dark mode");
+        themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+      }
+    }
+    themeBtn?.addEventListener("click", () => {
+      applyTheme(currentTheme() === "dark" ? "light" : "dark");
+    });
+    /* Persist current theme (first visit defaults to dark via head script) */
+    applyTheme(currentTheme());
+
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbCap = document.getElementById("lbCap");
+    document.querySelectorAll(".gallery figure").forEach(fig => {
+      fig.addEventListener("click", () => {
+        const src = fig.dataset.full || fig.querySelector("img").src;
+        const cap = fig.querySelector("figcaption")?.textContent || "";
+        lbImg.src = src;
+        lbImg.alt = fig.querySelector("img").alt || "";
+        lbCap.textContent = cap;
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      });
+    });
+    function closeLb() {
+      lb.classList.remove("open");
+      document.body.style.overflow = "";
+      lbImg.src = "";
+    }
+    document.getElementById("lbClose").addEventListener("click", closeLb);
+    lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
+  </script>
+</body>
+</html>
