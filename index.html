@@ -7,7 +7,7 @@
   <meta name="description" content="Professional portfolio — award-winning landscape construction plus mining, quarrying and crushing plant operation across Australia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/hero-cover.webp" type="image/webp" />
   <link rel="preload" as="image" href="assets/hero-cover.jpg" type="image/jpeg" />
   <script>
@@ -145,7 +145,7 @@
     html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
     html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-    /* HERO */
+    /* HERO — matched to reference mockup (font/size/stack) */
     .hero {
       position: relative; min-height: 100vh; min-height: 100dvh;
       display: grid; place-items: end start;
@@ -164,45 +164,75 @@
       position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(
         105deg,
-        rgba(15, 26, 16, 0.72) 0%,
-        rgba(15, 26, 16, 0.32) 45%,
+        rgba(15, 26, 16, 0.82) 0%,
+        rgba(15, 26, 16, 0.45) 40%,
         rgba(15, 26, 16, 0.12) 100%
       );
       pointer-events: none;
     }
     .hero-content {
       position: relative; z-index: 2;
-      padding: 0 2rem 5.5rem;
-      max-width: 820px;
+      padding: 0 2.25rem 4.75rem;
+      max-width: 920px;
+      width: 100%;
+      text-align: left;
+    }
+    /*
+      WILL POWER — Playfair Display (high-contrast Didone serif from mockup).
+      Measured from 1905×867 reference: cap height ≈ 88–96px ≈ 4.7–5vw.
+      Tagline below stays Cormorant Garamond (different face).
+    */
+    .hero-name {
+      display: block;
+      font-family: "Playfair Display", "Times New Roman", Times, serif;
+      font-size: clamp(3.5rem, 5vw, 6rem);
+      font-weight: 900;
+      font-style: normal;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      text-align: left;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    /* EXPERIENCED OPERATOR | BACKYARD SPECIALIST — ~20–24px, tracked */
+    .hero-roles {
+      display: block;
+      font-family: "Playfair Display", "Times New Roman", Times, serif;
+      font-size: clamp(0.9rem, 1.2vw, 1.3rem);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: 0.16em;
+      text-align: left;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.94);
+      margin: 0.5rem 0 1.4rem;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 0.75rem;
       font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--sage); font-weight: 500; margin-bottom: 1.25rem;
+      color: var(--sage); font-weight: 500; margin: 0 0 1.15rem;
     }
     .hero-eyebrow::before {
       content: ""; width: 2.5rem; height: 1px; background: var(--sage);
     }
-    .hero-name {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(2rem, 4.5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: 0.08em;
-      text-align: left;
-      color: var(--cream);
-      margin: 0 0 0.65rem;
-      text-transform: uppercase;
-    }
     .hero h1 {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(3.2rem, 8vw, 5.6rem);
-      line-height: 0.95; font-weight: 700; margin-bottom: 1rem;
+      font-size: clamp(3rem, 7.2vw, 5.25rem);
+      line-height: 0.95; font-weight: 700; margin: 0 0 1rem;
     }
     .hero h1 em { font-style: italic; font-weight: 400; color: var(--sand); }
     .hero-lead {
       font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 300;
-      max-width: 34rem; color: rgba(247,243,234,0.9); margin-bottom: 2rem;
+      max-width: 34rem; color: rgba(247,243,234,0.9); margin: 0 0 2rem;
     }
     .hero-meta {
       display: flex; flex-wrap: wrap; gap: 1rem 2rem;
@@ -815,7 +845,9 @@
       .nav.open .nav-actions .nav-cta {
         display: none;
       }
-      .hero-content { padding-bottom: 4rem; }
+      .hero-name { white-space: normal; font-size: clamp(3.25rem, 14vw, 4.75rem); }
+      .hero-roles { letter-spacing: 0.1em; font-size: clamp(0.8rem, 3.2vw, 1rem); }
+      .hero-content { padding: 0 1.25rem 3.5rem; }
       section { padding: 3.5rem 1.25rem; }
       /* Keep logo strip as one horizontal scroll row on phones */
       .companies-banner { padding-left: 0; padding-right: 0; }
@@ -891,8 +923,9 @@
       </picture>
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="hero-eyebrow">Qualified Landscaper · Cert III Landscape Construction</p>
         <p class="hero-name">WILL POWER</p>
+        <p class="hero-roles">EXPERIENCED OPERATOR | BACKYARD SPECIALIST</p>
+        <p class="hero-eyebrow">Qualified Landscaper · Cert III Landscape Construction</p>
         <h1>Crafted outdoor spaces.<br /><em>Built to last.</em></h1>
         <p class="hero-lead">
           High-end residential and commercial landscape construction across South Australia —
