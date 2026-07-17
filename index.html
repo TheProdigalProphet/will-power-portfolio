@@ -7,7 +7,27 @@
   <meta name="description" content="Professional portfolio — award-winning landscape construction plus mining, quarrying and crushing plant operation across Australia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!--
+    Forma DJR Deck (DJR) — primary hero title face.
+    Drop licensed web files in fonts/ (see fonts/README.md) for public hosting.
+    Until then, local systems with the font installed will render it; others
+    fall back to a close neo-grotesque italic.
+  -->
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: "Forma DJR Deck";
+      src:
+        url("fonts/FormaDJRDeck-Italic.woff2") format("woff2"),
+        url("fonts/FormaDJRDeck-Italic.woff") format("woff"),
+        url("fonts/FormaDJRDeck-Italic.otf") format("opentype"),
+        url("fonts/FormaDJRDeck-Italic.ttf") format("truetype");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+  </style>
   <link rel="preload" as="image" href="assets/hero-cover.webp" type="image/webp" />
   <link rel="preload" as="image" href="assets/hero-cover.jpg" type="image/jpeg" />
   <script>
@@ -178,17 +198,16 @@
       text-align: left;
     }
     /*
-      WILL POWER — Playfair Display (high-contrast Didone serif from mockup).
-      Measured from 1905×867 reference: cap height ≈ 88–96px ≈ 4.7–5vw.
-      Tagline below stays Cormorant Garamond (different face).
+      WILL POWER — Forma DJR Deck Italic, regular weight (NOT bold).
+      Neo-grotesque sans (DJR / Aldo Novarese revival), per design mockup.
     */
     .hero-name {
       display: block;
-      font-family: "Playfair Display", "Times New Roman", Times, serif;
+      font-family: "Forma DJR Deck", "Forma DJR", Switzer, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: clamp(3.5rem, 5vw, 6rem);
-      font-weight: 900;
-      font-style: normal;
-      line-height: 0.9;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 0.92;
       letter-spacing: -0.01em;
       text-align: left;
       color: #ffffff;
@@ -200,15 +219,15 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
-    /* EXPERIENCED OPERATOR | BACKYARD SPECIALIST — ~20–24px, tracked */
+    /* EXPERIENCED OPERATOR | BACKYARD SPECIALIST — same face, smaller */
     .hero-roles {
       display: block;
-      font-family: "Playfair Display", "Times New Roman", Times, serif;
+      font-family: "Forma DJR Deck", "Forma DJR", Switzer, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: clamp(0.9rem, 1.2vw, 1.3rem);
       font-weight: 400;
-      font-style: normal;
+      font-style: italic;
       line-height: 1.25;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-align: left;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.94);
