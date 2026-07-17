@@ -8,26 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <!--
-    Forma DJR Deck (DJR) — primary hero title face.
-    Drop licensed web files in fonts/ (see fonts/README.md) for public hosting.
-    Until then, local systems with the font installed will render it; others
-    fall back to a close neo-grotesque italic.
-  -->
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400&display=swap" rel="stylesheet" />
-  <style>
-    @font-face {
-      font-family: "Forma DJR Deck";
-      src:
-        url("fonts/FormaDJRDeck-Italic.woff2") format("woff2"),
-        url("fonts/FormaDJRDeck-Italic.woff") format("woff"),
-        url("fonts/FormaDJRDeck-Italic.otf") format("opentype"),
-        url("fonts/FormaDJRDeck-Italic.ttf") format("truetype");
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap;
-    }
-  </style>
+  <!-- Adobe Fonts — Forma DJR Deck (kit ymu3myv) -->
+  <link rel="stylesheet" href="https://use.typekit.net/ymu3myv.css" />
   <link rel="preload" as="image" href="assets/hero-cover.webp" type="image/webp" />
   <link rel="preload" as="image" href="assets/hero-cover.jpg" type="image/jpeg" />
   <script>
@@ -198,12 +180,12 @@
       text-align: left;
     }
     /*
-      WILL POWER — Forma DJR Deck Italic, regular weight (NOT bold).
-      Neo-grotesque sans (DJR / Aldo Novarese revival), per design mockup.
+      WILL POWER — Forma DJR Deck Italic via Adobe Fonts (typekit ymu3myv).
+      CSS family name from kit: "forma-djr-deck" — italic, weight 400 (not bold).
     */
     .hero-name {
       display: block;
-      font-family: "Forma DJR Deck", "Forma DJR", Switzer, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "forma-djr-deck", sans-serif;
       font-size: clamp(3.5rem, 5vw, 6rem);
       font-weight: 400;
       font-style: italic;
@@ -222,7 +204,7 @@
     /* EXPERIENCED OPERATOR | BACKYARD SPECIALIST — same face, smaller */
     .hero-roles {
       display: block;
-      font-family: "Forma DJR Deck", "Forma DJR", Switzer, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "forma-djr-deck", sans-serif;
       font-size: clamp(0.9rem, 1.2vw, 1.3rem);
       font-weight: 400;
       font-style: italic;
